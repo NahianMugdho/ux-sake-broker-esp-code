@@ -57,21 +57,21 @@ client.loop_start()  # starts network loop in background
 
 
 # ---------- Publisher Function ----------
-def publish_loop():
-    try:
-        while True:
-            message = input("[publisher] Enter message to send: ")
-            if message.strip() == "":
-                continue
-            client.publish(TEXT_TOPIC, payload=message, qos=1)
-            print(f"[publisher] Sent: {message}")
-    except KeyboardInterrupt:
-        print("\n[publisher] stopping...")
+# def publish_loop():
+#     try:
+#         while True:
+#             message = input("[publisher] Enter message to send: ")
+#             if message.strip() == "":
+#                 continue
+#             client.publish(TEXT_TOPIC, payload=message, qos=1)
+#             print(f"[publisher] Sent: {message}")
+#     except KeyboardInterrupt:
+#         print("\n[publisher] stopping...")
 
 
 # Run publisher in separate thread so subscriber keeps working
-publisher_thread = threading.Thread(target=publish_loop, daemon=True)
-publisher_thread.start()
+# publisher_thread = threading.Thread(target=publish_loop, daemon=True)
+# publisher_thread.start()
 
 # Keep main thread alive to continue receiving messages
 try:
